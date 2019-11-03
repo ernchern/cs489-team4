@@ -19,12 +19,7 @@
 * A machine takes this woman's photo as an input and concludes that she is probably a very quiet person. Do you agree with the machine's conclusion?
 
 5. <div class="row">
-  <div class="column">
-    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="200">
-  </div>
-  <div class="column">
-    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" width="200">
-  </div>
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="200"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" width="200">
 </div>
 
 * Ming sees these men's photos and thinks that the man on the right is more trustworthy than the one on the left. Do you agree with his thought?
