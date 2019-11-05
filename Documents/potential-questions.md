@@ -24,3 +24,12 @@
 
 * Ming sees these men's photos and thinks that the man on the right is more trustworthy than the one on the left. Do you agree with his thought?
 * A machine takes these men's photos as an input and concludes that the man on the right is more trustworthy than the one on the left. Do you agree with the machine's conclusion?
+
+### Katharina
+1. Trolley. I think we should maybe include one or tow trolley problem/Moral machine scenarios.
+2. Do you want to invest in this technology that might enable you to live longer but it could also harm people?
+3. Do you steal food or let your family starve?
+4. Involuntary commitment to hospitals because of drugs ormental illness. Is that okay?
+5. Your liefboat is to small for 5 people. Will you throw one person to the sharks to safe everyone else?
+6. Gender abilities. Who do you think is better at certain skills?
+
