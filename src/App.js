@@ -3,10 +3,6 @@ import './App.css';
 
 // require firebase
 const firebase = require('firebase');
-
-// reuire uuid
-const uuid = require('uuid');
-
 const config = {
 apiKey: "AIzaSyDX2D4nRHz6jFAfQRCRBawGcWdqOxMEFNk",
     authDomain: "cs489-team-4.firebaseapp.com",
