@@ -3,6 +3,9 @@ import './App.css';
 
 // require firebase
 const firebase = require('firebase');
+// reuire uuid
+const uuid = require('uuid');
+
 const config = {
 apiKey: "AIzaSyDX2D4nRHz6jFAfQRCRBawGcWdqOxMEFNk",
     authDomain: "cs489-team-4.firebaseapp.com",
@@ -15,20 +18,59 @@ apiKey: "AIzaSyDX2D4nRHz6jFAfQRCRBawGcWdqOxMEFNk",
   };
 firebase.initializeApp(config);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Header</h1>
-        <p>
-          Contents
-        </p>
-        <p>
-          We still need to decide between material UI and bootstrap
-        </p>
-      </header>
-    </div>
-  );
+class App extends Component { 
+  
+  //set the age of the user
+  ageChange(event) {
+	  this.setState({age: event.target.value});
+  }
+  
+  //update firebase
+  ageSubmit(event){
+	alert('Age was submitted: ' + this.state.age);
+	// prevents event default of submit
+    event.preventDefault();
+	firebase.database().ref(this.state.uid).set({
+      age: this.state.age,
+    });
+  }
+  
+  constructor(props){
+    super(props);
+    this.state = {
+	  // this gives a unique id, using uuid package
+      uid: uuid.v1(),
+      age: "",
+    };
+    // binding the userSubmit method
+	this.ageChange = this.ageChange.bind(this);
+    this.ageSubmit = this.ageSubmit.bind(this);
+  }
+
+  render(){
+
+    // declare age within render
+    let age;
+	 age = 
+	  <div>
+        <h2>How old are you?</h2>
+        {/* here our from has calls a method on submit */}
+        <form onSubmit={this.ageSubmit}>
+          <input type="text" onChange={this.ageChange} className="ageInput"/>
+          <br />
+          <br />
+          <input type="submit" value="submit" className="submitBtn"/>
+        </form>
+      </div>;
+    // what our app will show
+    return(
+      <div>
+        <br />
+        {age}
+      </div>
+    );
+ 
+  }
 }
 
 export default App;
