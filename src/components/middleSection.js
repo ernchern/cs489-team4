@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class MiddleSection extends React.Component {
+export class MiddleSection extends Component {
     render() {
-    return (
-        <div>helloworld</div>
-    );
+        return (
+            <div style={{backgroundColor: "#C3C3C3", height: "100%"}}>helloworld</div>
+        );
     }
 
 }
-
-export default MiddleSection;
