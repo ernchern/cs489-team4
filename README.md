@@ -35,3 +35,26 @@ We can customize more on:
 	- Female
 
 I'm thinking about bar graph, but not sure if it is the right choice.
+
+## Database structure
+There are two main collections:
+1. Question
+	- question 1
+		- description AI version
+		- description human version
+		- image source (if applicable, backend would have to deal with whether to load image)
+2. UserRecord
+	- user record 1
+		- version: does this user answer the AI version or human version
+		- age
+		- gender
+		- answers: map of answer to all the questions (if we random from the set of questions, then some questions will not have answer).
+			- "q1": "Agree"
+			- "q2": "Disagree"
+			- "q3": "Unapplicable"
+			- etc.
+
+There is an option of accumulating the answers of all user into the question,
+so that dont have to recalculate everything from scratch for analysis every time.
+But that depends..
+We can come back to fix that later
