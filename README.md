@@ -1,16 +1,22 @@
 # CS489 Team 4 Project
 *We need a name. I suggest 'moral test' (or something similar), to hide our true motive and let user think that this is a test of AI/other people's moral sense.*
+(I think it is not a test for the public, more like an experiment. So, I think we can just say it is a moral survey,  so the people would not feel they are tested, although I think some questions are not exactly related to moral. But I am little afraid also about the bias of people if we make a title.)
 
 ## Installation
 #### Additional Node Packages
 We will be using the [Firebase](https://www.npmjs.com/package/firebase) package. Install this after your app has been created by running `npm install --save firebase`.
-To make sure our survey takers will be recorded with unique ID numbers, and will not override each others answers, we will install [uuid](https://www.npmjs.com/package/uuid) by running `npm install --save uuid`
 
 ## Overall Structure
 ### Intro
-Introduction to our experiment. What it is. What it is for. For example:
-Welcome to *Moral Test*!
-You are about to take a short quiz to see how you perform morally according to an advanced AI specialized for making moral decision.
+Welcome to *Moral Survey*!
+
+The purpose of our project is to study human's moral decision making process and help machine to make better moral decision for human.
+
+The procedure involves filling an online survey that will take approximately 10 minutes. 
+
+Your responses will be confidential and we do not collect identifying information such as your name, email address or IP address. 
+
+Clicking on the start button below indicates that you have read the above information and voluntarily agree to participate.
 ### Experiment
 Containing our main experiment. The order:
 1. Basic info collection (age, gender, CS background (yes/no))
