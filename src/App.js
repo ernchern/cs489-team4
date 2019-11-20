@@ -2,10 +2,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import { LeftSection } from './components/LeftSection';
-import { MiddleSection } from './components/MiddleSection';
-//import firebase from 'firebase';
+import { IntroPage } from './pages/Introduction/IntroPage';
+import { BasicInfoPage } from './pages/Experiment/BasicInfoPage';
+import { QuestionPage } from './pages/Experiment/QuestionPage';
+import { OutroPage } from './pages/Outro-Analytics/OutroPage';
+import { Analytics } from './pages/Outro-Analytics/Analytics';
+import {BrowserRouter, Route} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 // require firebase
 const firebase = require('firebase');
@@ -55,28 +58,21 @@ class App extends Component {
 
   render(){
 
-    // declare age within render
-    let age;
-	 //age = 
-	  
     // what our app will show
     return(
-      <Container style={{ height: "100%", column: "100%", position: "absolute" }}>
-      <Row style={{ height: "inherit" }}>
-        <Col><LeftSection></LeftSection></Col>
-        <Col><MiddleSection></MiddleSection></Col>
-        <Col>
-          <h2>How old are you?</h2>
-          {/* here our from has calls a method on submit */}
-          <form onSubmit={this.ageSubmit}>
-            <input type="text" onChange={this.ageChange} className="ageInput"/>
-            <br />
-            <br />
-            <input type="submit" value="submit" className="submitBtn"/>
-          </form>
-        </Col>
-      </Row>
-    </Container>
+      <div class="screenPadding">
+        <div style={{textAlign: "center"}}>
+          <Button href="/" variant="link" size="sm">NAME OF THE PROJECT - as an header (try clicking)</Button>
+        </div>
+        <BrowserRouter>
+          <Route exact path="/" component={IntroPage} />
+          <Route exact path="/intro" component={IntroPage} />
+          <Route exact path="/basicinfo" component={BasicInfoPage} />
+          <Route exact path="/questions" component={QuestionPage} />
+          <Route exact path="/outro" component={OutroPage} />
+          <Route exact path="/analytics" component={Analytics} />
+        </BrowserRouter>
+      </div>
     );
  
   }

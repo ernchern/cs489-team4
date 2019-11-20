@@ -1,16 +1,22 @@
 # CS489 Team 4 Project
 *We need a name. I suggest 'moral test' (or something similar), to hide our true motive and let user think that this is a test of AI/other people's moral sense.*
+(I think it is not a test for the public, more like an experiment. So, I think we can just say it is a moral survey,  so the people would not feel they are tested, although I think some questions are not exactly related to moral. But I am little afraid also about the bias of people if we make a title.)
 
 ## Installation
 #### Additional Node Packages
 We will be using the [Firebase](https://www.npmjs.com/package/firebase) package. Install this after your app has been created by running `npm install --save firebase`.
-To make sure our survey takers will be recorded with unique ID numbers, and will not override each others answers, we will install [uuid](https://www.npmjs.com/package/uuid) by running `npm install --save uuid`
 
 ## Overall Structure
 ### Intro
-Introduction to our experiment. What it is. What it is for. For example:
-Welcome to *Moral Test*!
-You are about to take a short quiz to see how you perform morally according to an advanced AI specialized for making moral decision.
+Welcome to *Moral Survey*! Thank you for agreeing to take part in this survey.
+
+The purpose of our project is to study human's moral decision making process and help machine to make better moral decision for human.
+
+The procedure involves filling an online survey that will take approximately 5 to 10 minutes. The questions will be asking whether if you agree on the moral decisions in some certain situations. Note that there is no absolute answer and you can freely choose the answer based on your own opinion.
+
+Your responses will be confidential and we do not collect identifying information such as your name, email address or IP address. 
+
+Clicking on the start button below indicates that you have read the above information and voluntarily agree to participate.
 ### Experiment
 Containing our main experiment. The order:
 1. Basic info collection (age, gender, CS background (yes/no))
@@ -18,9 +24,18 @@ Containing our main experiment. The order:
 3. Question 2
 ..  
 10. Question 10   
-### Outtro
-Clarifying that the test is not about AI/human moral sense.
-Explain our motive. Let the participant sees the analysis?
+### Outro
+Thank you so much for participating in the survey!
+
+*Moral Survey* is actually a blinded experiment. Two sets of questions are randomly assigned to our participants. One tells the participants that moral decisions are all made by machine, while the other one tells that some humans have made the same moral decisions. You had only answered one of the question sets. 
+
+The purpose of this experiment is to study if human has any bias on moral decisions made by machine, that human may change their opinion, depending on who has made the decisions. 
+
+This is an important experiment to measure the level of trust of human on machine, before we discuss how machine should make their moral decisions. The machine's decisions will only have its significant meaning, if human trusts its decisions, as much as other human's decisions.
+
+If you are interested in our experiment or you are curious about the experiment result analysis, please contact *some contact*. 
+
+Thank you again for your support and participation.
 ### Analysis
 We have only two kinds of numbers: agreement rate with AI, and agreement rate with human.
 We can customize more on:
