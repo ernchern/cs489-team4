@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import { LeftSection } from './components/LeftSection';
-import { MiddleSection } from './components/MiddleSection';
-//import firebase from 'firebase';
+import { IntroPage } from './pages/IntroPage';
+import { BasicInfoPage } from './pages/BasicInfoPage';
+import { QuestionPage } from './pages/QuestionPage';
+import { OutroPage } from './pages/OutroPage';
+import { Analytics } from './pages/Analytics';
 
 // require firebase
 const firebase = require('firebase');
@@ -55,28 +56,16 @@ class App extends Component {
 
   render(){
 
-    // declare age within render
-    let age;
-	 //age = 
-	  
     // what our app will show
     return(
-      <Container style={{ height: "100%", column: "100%", position: "absolute" }}>
-      <Row style={{ height: "inherit" }}>
-        <Col><LeftSection></LeftSection></Col>
-        <Col><MiddleSection></MiddleSection></Col>
-        <Col>
-          <h2>How old are you?</h2>
-          {/* here our from has calls a method on submit */}
-          <form onSubmit={this.ageSubmit}>
-            <input type="text" onChange={this.ageChange} className="ageInput"/>
-            <br />
-            <br />
-            <input type="submit" value="submit" className="submitBtn"/>
-          </form>
-        </Col>
-      </Row>
-    </Container>
+      <div class="screenPadding">
+        
+        <IntroPage></IntroPage>
+        <BasicInfoPage></BasicInfoPage>
+        <QuestionPage></QuestionPage>
+        <OutroPage></OutroPage>
+        <Analytics></Analytics>
+      </div>
     );
  
   }
