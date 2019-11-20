@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
-import './OutroPage.css';
+import './IntroPage.css';
 
 
-export class OutroPage extends Component {
+export class IntroPage extends Component {
     render() {
         return (
             <div class="overallLayout">
                 <div class="textCenter">
                     
                     
-                    <div>This is the Outro Page</div>
-                    <Button variant="primary" type="submit">Analytics</Button>
+                    <div>This is the Introduction Page</div>
+                    <Button href="basicinfo" variant="primary" type="submit">Start</Button>
                 
                 </div>
             </div>

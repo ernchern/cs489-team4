@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { IntroPage } from './pages/IntroPage';
-import { BasicInfoPage } from './pages/BasicInfoPage';
-import { QuestionPage } from './pages/QuestionPage';
-import { OutroPage } from './pages/OutroPage';
-import { Analytics } from './pages/Analytics';
+import { IntroPage } from './pages/Introduction/IntroPage';
+import { BasicInfoPage } from './pages/Experiment/BasicInfoPage';
+import { QuestionPage } from './pages/Experiment/QuestionPage';
+import { OutroPage } from './pages/Outro-Analytics/OutroPage';
+import { Analytics } from './pages/Outro-Analytics/Analytics';
+import {BrowserRouter, Route} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 // require firebase
 const firebase = require('firebase');
@@ -59,12 +61,17 @@ class App extends Component {
     // what our app will show
     return(
       <div class="screenPadding">
-        
-        <IntroPage></IntroPage>
-        <BasicInfoPage></BasicInfoPage>
-        <QuestionPage></QuestionPage>
-        <OutroPage></OutroPage>
-        <Analytics></Analytics>
+        <div style={{textAlign: "center"}}>
+          <Button href="/" variant="link" size="sm">NAME OF THE PROJECT - as an header (try clicking)</Button>
+        </div>
+        <BrowserRouter>
+          <Route exact path="/" component={IntroPage} />
+          <Route exact path="/intro" component={IntroPage} />
+          <Route exact path="/basicinfo" component={BasicInfoPage} />
+          <Route exact path="/questions" component={QuestionPage} />
+          <Route exact path="/outro" component={OutroPage} />
+          <Route exact path="/analytics" component={Analytics} />
+        </BrowserRouter>
       </div>
     );
  

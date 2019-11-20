@@ -11,7 +11,8 @@ export class Analytics extends Component {
                     
                     
                     <div>This is the Analytics Page</div>
-                    <Button variant="primary" type="submit">Go Back</Button>
+                    <Button href="outro" variant="primary" type="submit">Go Back</Button>
+                    
                 
                 </div>
             </div>

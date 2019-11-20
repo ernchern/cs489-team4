@@ -12,3 +12,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.buttonPosition {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}

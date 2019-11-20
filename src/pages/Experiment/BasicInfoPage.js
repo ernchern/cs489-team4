@@ -54,7 +54,7 @@ export class BasicInfoPage extends Component {
                         
                     </Form>
                     <div class="buttonPadding">
-                    <Button variant="primary" type="submit">
+                    <Button href="questions" variant="primary" type="submit">
                         Click to Proceed
                     </Button>
                     </div>
