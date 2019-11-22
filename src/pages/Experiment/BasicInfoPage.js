@@ -18,16 +18,22 @@ export class BasicInfoPage extends Component {
                             <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
                                 <ToggleButton variant="outline-primary" value={1}>Male</ToggleButton>
                                 <ToggleButton variant="outline-primary" value={2}>Female</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={3}>Unknown</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={3}>Rather not say</ToggleButton>
                             </ToggleButtonGroup>
                         </Form.Group>
 
                         <Form.Group controlId="formAge">
                             <Form.Label style={{marginRight: "15px"}}>Age</Form.Label>
                             <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                                <ToggleButton variant="outline-primary" value={1}>Under 18</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={2}>18-25</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={3}>25-40</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={1}>14 and below</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={2}>15-19</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={3}>20-24</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={4}>25-29</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={5}>30-34</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={6}>35-39</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={7}>40-44</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={8}>45-49</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={9}>50 and above</ToggleButton>
                             </ToggleButtonGroup>
                         </Form.Group>
 
