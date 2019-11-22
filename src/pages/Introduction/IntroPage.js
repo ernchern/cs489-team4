@@ -5,9 +5,10 @@ import './IntroPage.css';
 
 export class IntroPage extends Component {
     render() {
+        console.log(localStorage.getItem('version'));
         return (
-            <div class="overallLayout">
-                <div class="textCenter">
+            <div className="overallLayout">
+                <div className="textCenter">
                    <div>
                         Welcome to Moral Survey! Thank you for agreeing to take part in this survey.
                         <br/>

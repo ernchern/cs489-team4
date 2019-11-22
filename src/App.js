@@ -9,72 +9,67 @@ import { OutroPage } from './pages/Outro-Analytics/OutroPage';
 import { Analytics } from './pages/Outro-Analytics/Analytics';
 import {BrowserRouter, Route} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import firebase from 'firebase';
+import { FirestoreProvider } from "@react-firebase/firestore";
+import firebaseConfig from './firebaseConfig';
 
-// require firebase
-const firebase = require('firebase');
-// reuire uuid
-const uuid = require('uuid');
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
 
-const config = {
-apiKey: "AIzaSyDX2D4nRHz6jFAfQRCRBawGcWdqOxMEFNk",
-    authDomain: "cs489-team-4.firebaseapp.com",
-    databaseURL: "https://cs489-team-4.firebaseio.com",
-    projectId: "cs489-team-4",
-    storageBucket: "cs489-team-4.appspot.com",
-    messagingSenderId: "72131328035",
-    appId: "1:72131328035:web:b0ec224f6212453c1d9996",
-    measurementId: "G-P84YC6N7BK"
-  };
-firebase.initializeApp(config);
-
-class App extends Component { 
-  
-  //set the age of the user
-  ageChange(event) {
-	  this.setState({age: event.target.value});
-  }
-  
-  //update firebase
-  ageSubmit(event){
-	alert('Age was submitted: ' + this.state.age);
-	// prevents event default of submit
-    event.preventDefault();
-	firebase.database().ref(this.state.uid).set({
-      age: this.state.age,
-    });
-  }
-  
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-	  // this gives a unique id, using uuid package
-      uid: uuid.v1(),
-      age: "",
-    };
-    // binding the userSubmit method
-	this.ageChange = this.ageChange.bind(this);
-    this.ageSubmit = this.ageSubmit.bind(this);
+    if(!localStorage.getItem('version')) {
+      console.log("local storage saved", 'version');
+      var version = Math.floor(Math.random() * 2) ? "AI" : "human";
+      localStorage.setItem('version', version);
+    }
+    if(!localStorage.getItem('questions')) {
+      // WE HARDCODE THE NUMBER OF QUESTIONS HERE. MODIFY THIS IF WE HAVE MORE
+      // QUESTIONS.
+      var fullList = [];
+      for(var i=0; i<14; i++) fullList.push(i+1);
+      shuffle(fullList);
+      while(fullList.length > 10) fullList.pop();
+      localStorage.setItem('questions', fullList.toString());
+    }
+    if(!localStorage.getItem('options') || true) {
+      var options = '';
+      for(var i=0; i<10; i++) options += (Math.floor(Math.random() * 2) ? "A" : "B");
+        localStorage.setItem('options', options);
+    }
   }
 
-  render(){
-
+  render() {
+    // We are assuming that there are only 20
     // what our app will show
     return(
-      <div class="screenPadding">
-        <div style={{textAlign: "center"}}>
-          <Button href="/" variant="link" size="sm">NAME OF THE PROJECT - as an header (try clicking)</Button>
+      <FirestoreProvider {...firebaseConfig} firebase={firebase}>
+        <div className="screenPadding">
+          <div style={{textAlign: "center"}}>
+            <Button href="/" variant="link" size="sm">Moral Survey</Button>
+          </div>
+          <BrowserRouter>
+            <Route exact
+              path="/"
+              render={(props) => <IntroPage {...props} />} />
+            <Route exact path="/intro" component={IntroPage} />
+            <Route exact path="/basicinfo" component={BasicInfoPage} />
+            <Route exact path="/questions" component={QuestionPage} />
+            <Route exact path="/outro" component={OutroPage} />
+            <Route exact path="/analytics" component={Analytics} />
+          </BrowserRouter>
         </div>
-        <BrowserRouter>
-          <Route exact path="/" component={IntroPage} />
-          <Route exact path="/intro" component={IntroPage} />
-          <Route exact path="/basicinfo" component={BasicInfoPage} />
-          <Route exact path="/questions" component={QuestionPage} />
-          <Route exact path="/outro" component={OutroPage} />
-          <Route exact path="/analytics" component={Analytics} />
-        </BrowserRouter>
-      </div>
+      </FirestoreProvider>
     );
- 
   }
 }
 
