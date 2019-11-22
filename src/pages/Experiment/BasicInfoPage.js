@@ -6,19 +6,19 @@ import Form from 'react-bootstrap/Form';
 export class BasicInfoPage extends Component {
     render() {
         return (
-            <div class="overallLayout">
-                <div class="headerStyle">
+            <div className="overallLayout">
+                <div className="headerStyle">
                     This is the Information Collecting Page
                 </div>
                 <br/>
-                <div class="formCenter">
+                <div className="formCenter">
                     <Form>
                         <Form.Group controlId="formGender">
                             <Form.Label style={{marginRight: "15px"}}>Gender</Form.Label>
                             <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
                                 <ToggleButton variant="outline-primary" value={1}>Male</ToggleButton>
                                 <ToggleButton variant="outline-primary" value={2}>Female</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={3}>Rather not say</ToggleButton>
+                                <ToggleButton variant="outline-primary" value={3}>Rather not to say</ToggleButton>
                             </ToggleButtonGroup>
                         </Form.Group>
 
@@ -59,7 +59,7 @@ export class BasicInfoPage extends Component {
                         </Form.Group>
                         
                     </Form>
-                    <div class="buttonPadding">
+                    <div className="buttonPadding">
                     <Button href="questions" variant="primary" type="submit">
                         Click to Proceed
                     </Button>
