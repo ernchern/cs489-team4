@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
 import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
 export class BasicInfoPage extends Component {
 
@@ -43,11 +44,8 @@ export class BasicInfoPage extends Component {
 
                         <Form.Group controlId="formNationality">
                             <Form.Label style={{marginRight: "15px"}}>Nationality</Form.Label>
-                            <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                                <ToggleButton variant="outline-primary" value={1}>Asia</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={2}>America</ToggleButton>
-                                <ToggleButton variant="outline-primary" value={3}>Europe</ToggleButton>
-                            </ToggleButtonGroup>
+							<CountryDropdown/>
+
                         </Form.Group>
 
                         <Form.Group controlId="formBasicCheckbox">
