@@ -4,6 +4,7 @@ import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
 
 export class BasicInfoPage extends Component {
+
     render() {
         return (
             <div className="overallLayout">
@@ -60,7 +61,7 @@ export class BasicInfoPage extends Component {
                         
                     </Form>
                     <div className="buttonPadding">
-                    <Button href="questions" variant="primary" type="submit">
+                    <Button href="questions" variant="primary" onClick={()=>this.props.callbackFromParent("18")} type="submit">
                         Click to Proceed
                     </Button>
                     </div>
