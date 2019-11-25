@@ -2,9 +2,22 @@ import React, { Component } from 'react';
 import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
 import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { CountryDropdown } from 'react-country-region-selector';
+
+//<Form.Group controlId="formBasicCheckbox">
+	//<Form.Check type="checkbox" label="I consent to blah blah" />
+//</Form.Group>
 
 export class BasicInfoPage extends Component {
+	constructor (props) {
+		super(props);
+		this.state = { 
+		gender: '', 
+		age: '',
+		cs: '',
+		nationality: ''
+		};
+   }
 
     render() {
         return (
@@ -44,12 +57,7 @@ export class BasicInfoPage extends Component {
 
                         <Form.Group controlId="formNationality">
                             <Form.Label style={{marginRight: "15px"}}>Nationality</Form.Label>
-							<CountryDropdown/>
-
-                        </Form.Group>
-
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="I consent to blah blah" />
+							<CountryDropdown value={this.state.nationality} onChange={(val) => this.setState({nationality:val})}/>
                         </Form.Group>
                         
                     </Form>
