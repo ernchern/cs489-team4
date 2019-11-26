@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './QuestionPage.css';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import { FirestoreCollection, FirestoreDocument } from "@react-firebase/firestore";
 
 export class QuestionPage extends Component {
@@ -11,21 +11,47 @@ export class QuestionPage extends Component {
             questions: localStorage.getItem('questions').split(','),
             options: localStorage.getItem('options'),
             currentIndex: 0,
+
+            //Variables with buttons
+            is_first: true,
+            is_last: false,
         }
     }
 
     handleNext = () => {
-        if(this.state.currentIndex < 9)
+        if (this.state.currentIndex === 8) { this.setState({ is_last: true }); }
+        if (this.state.currentIndex === 0) { this.setState({ is_first: false }); }
+
+        if(this.state.currentIndex < 9) {
             this.setState({
                 currentIndex: this.state.currentIndex + 1,
             });
+            
+        }
+    }
+
+    handlePrev = () => {
+        if (this.state.currentIndex === 1) { this.setState({ is_first: true }); }
+        if (this.state.currentIndex === 9) { this.setState({ is_last: false }); }
+
+        if(this.state.currentIndex > 0) {
+            this.setState({
+                currentIndex: this.state.currentIndex - 1,
+            });
+            
+        }
+    }
+
+    handleSubmit = () => {
+
     }
 
     render() {
+        //{ is_first, is_last } = this.state
         return (
             <div className="overallLayout">
-                <div className="textCenter">
-                    <div>This is the Question Page</div>
+                <div className="titleCenter">
+                    <div>You are on question number {this.state.currentIndex+1}</div>
                     <br/>
                 </div>
                 <Card style={{width: "80%"}}>
@@ -33,6 +59,7 @@ export class QuestionPage extends Component {
                     <Card.Body>
                         <FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>
                             {d => {
+                                console.log(d)
                                 if(d.isLoading !== false) return "";
                                 var content = d.value['desc_'+this.state.version];
                                 var descriptions = content['option' + this.state.options[this.state.currentIndex]];
@@ -42,9 +69,17 @@ export class QuestionPage extends Component {
                     </Card.Body>
                 </Card>
                 <br/>
+                <ButtonGroup style={{alignContent: "center"}}>
+                    <Button width="50px" variant="outline-primary">Agree</Button>
+                    <Button width="50px" variant="outline-primary">Disagree</Button>
+                </ButtonGroup>
+                <br/>
+                <br/>
                 <div className="buttonPosition">
-                    <Button variant="primary" type="submit" size="lg">Prev</Button>
-                    <Button variant="primary" type="submit" size="lg" onClick={this.handleNext}>Next</Button>
+                    {this.state.is_first && <Button variant="primary" size="lg" disabled onClick={this.handlePrev}>Prev</Button>}
+                    {!this.state.is_first && <Button variant="primary" size="lg" onClick={this.handlePrev}>Prev</Button>}
+                    {!this.state.is_last && <Button variant="primary" size="lg" onClick={this.handleNext}>Next</Button>}
+                    {this.state.is_last && <Button variant="danger" size="lg" href="outro" onClick={this.handleSubmit}>Submit</Button>}
                 </div>
             </div>
         );
