@@ -33,7 +33,7 @@ export class BasicInfoPage extends Component {
         return (
             <div className="overallLayout">
                 <div className="headerStyle">
-                    This is the Information Collecting Page
+                    General Information
                 </div>
                 <br/>
                 <div className="formCenter">
@@ -56,7 +56,7 @@ export class BasicInfoPage extends Component {
                             </ToggleButtonGroup>
                         </Form.Group>
                         <Form.Group controlId="formCSBackground">
-                            <Form.Label style={{marginRight: "15px"}}>CS Background</Form.Label>
+                            <Form.Label style={{marginRight: "15px"}}>Do you have computing related background?</Form.Label>
                             <ToggleButtonGroup type="radio" name="options" onChange={(val) => this.setState({cs:val})}>
                                 <ToggleButton variant="outline-primary" value={"yes"}>Yes</ToggleButton>
                                 <ToggleButton variant="outline-primary" value={"no"}>No</ToggleButton>
