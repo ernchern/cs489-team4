@@ -49,12 +49,15 @@ class App extends Component {
 	this.state = {
 		age: "13"
     }
+	this.getData = this.getData.bind(this);
+  }
+
+  getData = (val) => {
+	  this.setState({age:val}, function () {
+		  alert(this.state.age);
+	  });
   }
   
-  myCallback = (data) => {
-        this.setState({age:data});
-		return this.state.age;}
-
   render() {
     // We are assuming that there are only 20
     // what our app will show
@@ -69,8 +72,8 @@ class App extends Component {
               path="/"
               render={(props) => <IntroPage {...props} />} />
             <Route exact path="/intro" component={IntroPage} />
-            <Route exact path="/basicinfo" render={(props) => <BasicInfoPage callbackFromParent={this.myCallback}/>}/>
-            <Route exact path="/questions" render={(props) => <QuestionPage{...props} gender='' age={this.state.age} cs='' nationality=''/>}/>
+            <Route exact path="/basicinfo" component={() => <BasicInfoPage callbackFromParent={this.getData}/>}/>
+            <Route exact path="/questions" component={() => <QuestionPage gender='' age={this.state.age} cs='' nationality=''/>}/>
             <Route exact path="/outro" component={OutroPage} />
             <Route exact path="/analytics" component={Analytics} />
           </BrowserRouter>

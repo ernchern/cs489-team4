@@ -18,6 +18,10 @@ export class BasicInfoPage extends Component {
 		nationality: ''
 		};
    }
+   
+    updateVal = () => {
+		this.props.callbackFromParent(this.state.age)
+    }
 
     render() {
         return (
@@ -58,8 +62,9 @@ export class BasicInfoPage extends Component {
                         </Form.Group>
                         
                     </Form>
+					<div>{this.state.age}</div>
                     <div className="buttonPadding">
-                    <Button href="questions" variant="primary" onClick={()=>this.props.callbackFromParent(this.state.age)} type="submit">
+                    <Button href="questions" variant="primary" onClick={this.updateVal} type="submit">
                         Click to Proceed
                     </Button>
                     </div>

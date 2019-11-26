@@ -27,6 +27,7 @@ export class QuestionPage extends Component {
                 <div className="textCenter">
                     <div>This is the Question Page</div>
                     <br/>
+					<div>{this.props.age}</div>
                 </div>
                 <Card style={{width: "80%"}}>
                     <Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
