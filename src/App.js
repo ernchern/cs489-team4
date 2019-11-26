@@ -47,15 +47,23 @@ class App extends Component {
         localStorage.setItem('options', options);
     }
 	this.state = {
-		age: "13"
+		gender: '', 
+		age: '13',
+		cs: '',
+		nationality: ''
     }
 	this.getData = this.getData.bind(this);
   }
 
   getData = (val) => {
-	  this.setState({age:val}, function () {
-		  alert(this.state.age);
-	  });
+	  this.setState({
+		  gender:val.gender,
+		  age:val.age,
+		  cs:val.cs,
+		  nationality:val.nationality
+		  }, function () {
+		  alert(this.state.gender+", "+this.state.age+", "+this.state.cs+", "+this.state.nationality);
+	  }); 
   }
   
   render() {
@@ -72,11 +80,12 @@ class App extends Component {
               path="/"
               render={(props) => <IntroPage {...props} />} />
             <Route exact path="/intro" component={IntroPage} />
-            <Route exact path="/basicinfo" component={() => <BasicInfoPage callbackFromParent={this.getData}/>}/>
-            <Route exact path="/questions" component={() => <QuestionPage gender='' age={this.state.age} cs='' nationality=''/>}/>
+            <Route exact path="/basicinfo" render={(props) => <BasicInfoPage{...props} callbackFromParent={this.getData}/>}/>
+            <Route exact path="/questions" render={(props) => <QuestionPage{...props} gender='' age={this.state.age} cs='' nationality=''/>}/>
             <Route exact path="/outro" component={OutroPage} />
             <Route exact path="/analytics" component={Analytics} />
           </BrowserRouter>
+		  <div>{this.state.age}</div>
         </div>
       </FirestoreProvider>
     );

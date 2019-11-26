@@ -19,8 +19,14 @@ export class BasicInfoPage extends Component {
 		};
    }
    
-    updateVal = () => {
-		this.props.callbackFromParent(this.state.age)
+    updateVal = (event) => {
+		if (this.state.gender!=='' && this.state.age!=='' && this.state.cs!=='' && this.state.nationality!=='') {
+			this.props.callbackFromParent(this.state);
+		} 
+		else {
+			event.preventDefault();
+			alert("Please fill all information field.");
+		}
     }
 
     render() {
@@ -62,7 +68,6 @@ export class BasicInfoPage extends Component {
                         </Form.Group>
                         
                     </Form>
-					<div>{this.state.age}</div>
                     <div className="buttonPadding">
                     <Button href="questions" variant="primary" onClick={this.updateVal} type="submit">
                         Click to Proceed

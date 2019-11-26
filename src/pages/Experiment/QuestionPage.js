@@ -16,6 +16,7 @@ export class QuestionPage extends Component {
             is_first: true,
             is_last: false,
         }
+		console.log(this.props.age)
     }
 
     handleNext = () => {
@@ -45,6 +46,7 @@ export class QuestionPage extends Component {
     handleSubmit = () => {
 
     }
+	
 
     render() {
         //{ is_first, is_last } = this.state
@@ -53,7 +55,6 @@ export class QuestionPage extends Component {
                 <div className="titleCenter">
                     <div>You are on question number {this.state.currentIndex+1}</div>
                     <br/>
-					<div>{this.props.age}</div>
                 </div>
                 <Card style={{width: "80%"}}>
                     <Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
