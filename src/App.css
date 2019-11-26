@@ -20,5 +20,6 @@
 .screenPadding {
   padding: 1%;
   min-height: 100vh;
-  background-color: #BBBBBB;
+  //background-color: #6270C8;
+  background-color: #ffffff;
 }

@@ -1,7 +1,8 @@
-.textCenter {
+.introText {
     text-align: center;
-    font-weight: bold;
-    font-size: 6.5vw;
+    //font-size: 4.2vw;
+    font-size: 17.5px;
+    width: 90%;
 }
 
 .overallLayout {
@@ -11,4 +12,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.introText p{
+    margin-bottom: 25px;
 }
