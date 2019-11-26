@@ -3,10 +3,8 @@ import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
 import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
 import { CountryDropdown } from 'react-country-region-selector';
+import { FirestoreCollection, FirestoreDocument } from "@react-firebase/firestore";
 
-//<Form.Group controlId="formBasicCheckbox">
-	//<Form.Check type="checkbox" label="I consent to blah blah" />
-//</Form.Group>
 
 export class BasicInfoPage extends Component {
 	constructor (props) {
