@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './QuestionPage.css';
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
-import { FirestoreCollection, FirestoreDocument } from "@react-firebase/firestore";
+import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 
 export class QuestionPage extends Component {
     constructor(props) {
@@ -44,6 +44,7 @@ export class QuestionPage extends Component {
     }
 
     handleSubmit = () => {
+        // Submit the information
 
     }
 	
@@ -81,7 +82,27 @@ export class QuestionPage extends Component {
                     {this.state.is_first && <Button variant="primary" size="lg" disabled onClick={this.handlePrev}>Prev</Button>}
                     {!this.state.is_first && <Button variant="primary" size="lg" onClick={this.handlePrev}>Prev</Button>}
                     {!this.state.is_last && <Button variant="primary" size="lg" onClick={this.handleNext}>Next</Button>}
-                    {this.state.is_last && <Button variant="danger" size="lg" href="outro" onClick={this.handleSubmit}>Submit</Button>}
+                    {this.state.is_last && 
+                        <FirestoreMutation type="set" path="/userRecord/test">
+                          {({ runMutation }) => {
+                            return (
+                              <div>
+                                <h2> Mutate state </h2>
+                                <Button variant="danger" size="lg" href="outro"
+                                    onClick={() => {
+                                        runMutation({
+                                          nowOnCli: Date.now(),
+                                        }).then(res => {
+                                          console.log("Ran mutation ", res);
+                                        });
+                                    }}>
+                                    Submit
+                                </Button>
+                              </div>
+                            );
+                          }}
+                        </FirestoreMutation>
+                    }
                 </div>
             </div>
         );

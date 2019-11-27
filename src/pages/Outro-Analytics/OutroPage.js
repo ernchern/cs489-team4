@@ -6,8 +6,8 @@ import './OutroPage.css';
 export class OutroPage extends Component {
     render() {
         return (
-            <div class="overallLayout">
-                <div class="textCenter">
+            <div className="overallLayout">
+                <div className="textCenter">
                     <div>
 					Thank you so much for participating in the survey!
 					<br/>
@@ -28,7 +28,7 @@ export class OutroPage extends Component {
 					</div>                    
                 </div>
                 <br/>
-                <div class="buttonPosition">
+                <div className="buttonPosition">
                     <Button href="analytics" variant="primary" type="submit">Analytics</Button>
                     <Button href="/" variant="primary" type="submit">Back to Main</Button>
                 </div>

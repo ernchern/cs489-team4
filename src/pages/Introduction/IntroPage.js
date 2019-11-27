@@ -7,7 +7,7 @@ export class IntroPage extends Component {
     render() {
 		var version = localStorage.getItem('version');
         console.log(version);
-		if (version == "AI") {
+		if (version === "AI") {
         return (
             <div className="overallLayout">
                 <div className="textCenter">
@@ -30,7 +30,7 @@ export class IntroPage extends Component {
                 </div>
             </div>
         );
-		} else if (version == "human") {
+		} else if (version === "human") {
 		return (
             <div className="overallLayout">
                 <div className="textCenter">

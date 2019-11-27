@@ -43,7 +43,7 @@ class App extends Component {
     }
     if(!localStorage.getItem('options') || true) {
       var options = '';
-      for(var i=0; i<10; i++) options += (Math.floor(Math.random() * 2) ? "A" : "B");
+      for(i=0; i<10; i++) options += (Math.floor(Math.random() * 2) ? "A" : "B");
         localStorage.setItem('options', options);
     }
 	this.state = {
@@ -63,12 +63,10 @@ class App extends Component {
 		  nationality:val.nationality
 		  }, function () {
 		  alert(this.state.gender+", "+this.state.age+", "+this.state.cs+", "+this.state.nationality);
-	  }); 
+	  });
   }
   
   render() {
-    // We are assuming that there are only 20
-    // what our app will show
     return(
       <FirestoreProvider {...firebaseConfig} firebase={firebase}>
         <div className="screenPadding">
