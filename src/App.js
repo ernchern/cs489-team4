@@ -8,10 +8,11 @@ import { QuestionPage } from './pages/Experiment/QuestionPage';
 import { OutroPage } from './pages/Outro-Analytics/OutroPage';
 import { Analytics } from './pages/Outro-Analytics/Analytics';
 import {BrowserRouter, Route} from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import firebase from 'firebase';
 import { FirestoreProvider } from "@react-firebase/firestore";
 import firebaseConfig from './firebaseConfig';
+import logo from './components/moral-survey.png';
 
 function shuffle(a) {
     var j, x, i;
@@ -70,8 +71,8 @@ class App extends Component {
     return(
       <FirestoreProvider {...firebaseConfig} firebase={firebase}>
         <div className="screenPadding">
-          <div style={{textAlign: "center", flex: 1, marginTop: 45}}>
-            <Button href="/" variant="link" size="sm">Moral Survey</Button>
+          <div style={{textAlign: "center", flex: 1}}>
+            <Button href="/" variant="link" size="sm"><Image src={logo} fluid /></Button>
           </div>
           <BrowserRouter>
             <Route exact
