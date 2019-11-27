@@ -3,7 +3,6 @@ import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
 import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
 import { CountryDropdown } from 'react-country-region-selector';
-// import { FirestoreCollection, FirestoreDocument } from "@react-firebase/firestore";
 
 var fields = ['gender', 'age', 'cs_background', 'nationality'];
 export class BasicInfoPage extends Component {
