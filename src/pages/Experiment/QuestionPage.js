@@ -86,10 +86,8 @@ export class QuestionPage extends Component {
                         <FirestoreMutation type="set" path="/userRecord/test">
                           {({ runMutation }) => {
                             return (
-                              <div>
-                                <h2> Mutate state </h2>
                                 <Button variant="danger" size="lg" href="outro"
-                                    onClick={() => {
+                                    onClick={(event) => {
                                         runMutation({
                                           nowOnCli: Date.now(),
                                         }).then(res => {
@@ -98,7 +96,6 @@ export class QuestionPage extends Component {
                                     }}>
                                     Submit
                                 </Button>
-                              </div>
                             );
                           }}
                         </FirestoreMutation>

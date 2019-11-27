@@ -17,10 +17,10 @@ import logo from './components/moral-survey.png';
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
     }
     return a;
 }
@@ -42,29 +42,11 @@ class App extends Component {
       while(fullList.length > 10) fullList.pop();
       localStorage.setItem('questions', fullList.toString());
     }
-    if(!localStorage.getItem('options') || true) {
+    if(!localStorage.getItem('options')) {
       var options = '';
       for(i=0; i<10; i++) options += (Math.floor(Math.random() * 2) ? "A" : "B");
         localStorage.setItem('options', options);
     }
-	this.state = {
-		gender: '', 
-		age: '13',
-		cs: '',
-		nationality: ''
-    }
-	this.getData = this.getData.bind(this);
-  }
-
-  getData = (val) => {
-	  this.setState({
-		  gender:val.gender,
-		  age:val.age,
-		  cs:val.cs,
-		  nationality:val.nationality
-		  }, function () {
-		  alert(this.state.gender+", "+this.state.age+", "+this.state.cs+", "+this.state.nationality);
-	  });
   }
   
   render() {
@@ -79,12 +61,11 @@ class App extends Component {
               path="/"
               render={(props) => <IntroPage {...props} />} />
             <Route exact path="/intro" component={IntroPage} />
-            <Route exact path="/basicinfo" render={(props) => <BasicInfoPage{...props} callbackFromParent={this.getData}/>}/>
-            <Route exact path="/questions" render={(props) => <QuestionPage{...props} gender='' age={this.state.age} cs='' nationality=''/>}/>
+            <Route exact path="/basicinfo" component={BasicInfoPage} />
+            <Route exact path="/questions" component={QuestionPage} />
             <Route exact path="/outro" component={OutroPage} />
             <Route exact path="/analytics" component={Analytics} />
           </BrowserRouter>
-		  <div>{this.state.age}</div>
         </div>
       </FirestoreProvider>
     );
