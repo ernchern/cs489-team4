@@ -1,25 +1,18 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .screenPadding {
   padding: 1%;
   min-height: 100vh;
-  //background-color: #6270C8;
-  background-color: #ffffff;
+  background-color: #EEEEEE;
+}
+
+.divPadding {
+  background-color: #b4bae4;
+  width: 95%;
+  margin: 0 auto;
+  height: 90%;
+  border-style: solid;
+  border-color: #6270c8;
+  border-width: 10px;
+  box-shadow: cornflowerblue;
 }

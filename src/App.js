@@ -56,16 +56,19 @@ class App extends Component {
           <div style={{textAlign: "center", flex: 1}}>
             <Button href="/" variant="link" size="sm"><Image src={logo} fluid /></Button>
           </div>
-          <BrowserRouter>
-            <Route exact
-              path="/"
-              render={(props) => <IntroPage {...props} />} />
-            <Route exact path="/intro" component={IntroPage} />
-            <Route exact path="/basicinfo" component={BasicInfoPage} />
-            <Route exact path="/questions" component={QuestionPage} />
-            <Route exact path="/outro" component={OutroPage} />
-            <Route exact path="/analytics" component={Analytics} />
-          </BrowserRouter>
+          <br/>
+          <div className="divPadding">
+            <BrowserRouter>
+              <Route exact
+                path="/"
+                render={(props) => <IntroPage {...props} />} />
+              <Route exact path="/intro" component={IntroPage} />
+              <Route exact path="/basicinfo" component={BasicInfoPage} />
+              <Route exact path="/questions" component={QuestionPage} />
+              <Route exact path="/outro" component={OutroPage} />
+              <Route exact path="/analytics" component={Analytics} />
+            </BrowserRouter>
+          </div>
         </div>
       </FirestoreProvider>
     );

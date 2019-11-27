@@ -80,12 +80,12 @@ export class QuestionPage extends Component {
 		return (
 			<div className="overallLayout">
 				<div className="titleCenter">
-					<div>You are on question number {this.state.currentIndex+1}</div>
-					<br/>
+					{/*<div>You are on question number {this.state.currentIndex+1}</div>
+					<br/>*/}
 				</div>
-				<Card style={{width: "80%"}}>
+				<Card style={{width: "88%", height: "70vh"}}>
 					<Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
-					<Card.Body>
+					<Card.Body style={{overflowY: "scroll"}}>
 						<FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>
 							{d => {
 								console.log(d)
