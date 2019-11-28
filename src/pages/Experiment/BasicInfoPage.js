@@ -41,9 +41,9 @@ export class BasicInfoPage extends Component {
 				<br/>
 				<div style={{textAlign: "center", width: "90%"}}>
 					<p>To start off, we need some of your basic information for later analysis.</p>
-					<p>Please fill out the below information and click <em>Proceed</em> to start the questions.</p>
+					<p>Please fill out the below information and click <em>Proceed</em> to begin answering the questions.</p>
+					<hr/>
 				</div>
-				<br/>
 				<div className="formCenter">
 					<Form>
 						<Form.Group controlId="formGender">

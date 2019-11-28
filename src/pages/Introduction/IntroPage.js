@@ -20,18 +20,14 @@ export class IntroPage extends Component {
             <div className="overallLayout">
                 <div className="introText">
                     <p><b>Welcome to Moral Survey!</b> Thank you for agreeing to take part in this survey.</p>
+                    <hr/>
                     <p>{opening_text}</p>
-                    <p>The procedure involves filling an online survey that will take approximately <em>5 to 10 minutes</em>. The questions will be asking whether if you agree on the decisions made by {study_object} in some certain situations. Note that there is no absolute answer and you can freely choose the answer based on your own opinion.</p>
+                    <p>The procedure involves filling an online survey that will take approximately <em>5 to 10 minutes</em>. The questions will be asking whether <em>if you <b>agree</b> on the decisions made by <b>{study_object}</b></em> in certain situations. Note that there is <em>no absolute answer</em> and you can freely choose the answer based on your own opinion.</p>
+                    <hr/>
                     <p>Your responses will be confidential and we <em>do not</em> collect identifying information such as your name, email address or IP address.</p>
-                    <p><b>Clicking on the <em>Start</em> button below indicates that you have read the above information and voluntarily agree to participate.</b></p>
-                    {/*<b>Welcome to Moral Survey!</b> Thank you for agreeing to take part in this survey.<hr/>
-                    {opening_text}<hr/>
-                    The procedure involves filling an online survey that will take approximately <em>5 to 10 minutes</em>. The questions will be asking whether if you agree on the decisions made by {study_object} in some certain situations. Note that there is no absolute answer and you can freely choose the answer based on your own opinion.<hr/>
-                    Your responses will be confidential and we <em>do not</em> collect identifying information such as your name, email address or IP address.<hr/>
-                    <b>Clicking on the Start button below indicates that you have read the above information and voluntarily agree to participate.</b>*/}
+                    <b>Clicking on the <em>Start</em> button below indicates that you have read the above information and voluntarily agree to participate.</b>
                 </div>
-                <br/>
-                <Button href="basicinfo" variant="primary" type="submit" size="lg">Start</Button>
+                <Button href="basicinfo" variant="primary" type="submit" size="lg" style={{margin: "0 0 20px 0"}}>Start</Button>
             </div>
         );
     }
