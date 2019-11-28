@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './QuestionPage.css';
-import { Card, Button, ButtonGroup, Image } from 'react-bootstrap';
+import { Card, Button, Image } from 'react-bootstrap';
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import uuid from 'uuid';
 
