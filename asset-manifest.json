@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/moral-survey/static/css/main.58b6dd0d.chunk.css",
-    "main.js": "/moral-survey/static/js/main.4093d65f.chunk.js",
-    "main.js.map": "/moral-survey/static/js/main.4093d65f.chunk.js.map",
-    "runtime-main.js": "/moral-survey/static/js/runtime-main.db1ab835.js",
-    "runtime-main.js.map": "/moral-survey/static/js/runtime-main.db1ab835.js.map",
-    "static/css/2.b0bb7f2c.chunk.css": "/moral-survey/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.d586d5a3.chunk.js": "/moral-survey/static/js/2.d586d5a3.chunk.js",
-    "static/js/2.d586d5a3.chunk.js.map": "/moral-survey/static/js/2.d586d5a3.chunk.js.map",
-    "index.html": "/moral-survey/index.html",
-    "precache-manifest.09b85d2a92c5cb2680f6786732e8f00f.js": "/moral-survey/precache-manifest.09b85d2a92c5cb2680f6786732e8f00f.js",
-    "service-worker.js": "/moral-survey/service-worker.js",
-    "static/css/2.b0bb7f2c.chunk.css.map": "/moral-survey/static/css/2.b0bb7f2c.chunk.css.map",
-    "static/css/main.58b6dd0d.chunk.css.map": "/moral-survey/static/css/main.58b6dd0d.chunk.css.map",
-    "static/media/moral-survey.png": "/moral-survey/static/media/moral-survey.41c18958.png"
+    "main.css": "/cs489-team4/static/css/main.58b6dd0d.chunk.css",
+    "main.js": "/cs489-team4/static/js/main.06abbf4f.chunk.js",
+    "main.js.map": "/cs489-team4/static/js/main.06abbf4f.chunk.js.map",
+    "runtime-main.js": "/cs489-team4/static/js/runtime-main.83a0aa9e.js",
+    "runtime-main.js.map": "/cs489-team4/static/js/runtime-main.83a0aa9e.js.map",
+    "static/css/2.b0bb7f2c.chunk.css": "/cs489-team4/static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.f7473f79.chunk.js": "/cs489-team4/static/js/2.f7473f79.chunk.js",
+    "static/js/2.f7473f79.chunk.js.map": "/cs489-team4/static/js/2.f7473f79.chunk.js.map",
+    "index.html": "/cs489-team4/index.html",
+    "precache-manifest.f749c174967f86296cf8c2ee59f3b0f0.js": "/cs489-team4/precache-manifest.f749c174967f86296cf8c2ee59f3b0f0.js",
+    "service-worker.js": "/cs489-team4/service-worker.js",
+    "static/css/2.b0bb7f2c.chunk.css.map": "/cs489-team4/static/css/2.b0bb7f2c.chunk.css.map",
+    "static/css/main.58b6dd0d.chunk.css.map": "/cs489-team4/static/css/main.58b6dd0d.chunk.css.map",
+    "static/media/moral-survey.png": "/cs489-team4/static/media/moral-survey.41c18958.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.db1ab835.js",
+    "static/js/runtime-main.83a0aa9e.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.d586d5a3.chunk.js",
+    "static/js/2.f7473f79.chunk.js",
     "static/css/main.58b6dd0d.chunk.css",
-    "static/js/main.4093d65f.chunk.js"
+    "static/js/main.06abbf4f.chunk.js"
   ]
 }
