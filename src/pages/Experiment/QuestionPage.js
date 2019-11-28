@@ -4,6 +4,8 @@ import { Card, Button, Image } from 'react-bootstrap';
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import uuid from 'uuid';
 
+var currentAgree=0;
+var prevAgree=0;
 export class QuestionPage extends Component {
 	constructor(props) {
 		super(props);
@@ -31,6 +33,8 @@ export class QuestionPage extends Component {
 			agree: true,
 			option_type: this.state.options[this.state.currentIndex],
 		}
+		currentAgree = currentAgree + 10;
+		prevAgree = 1;
 		this.setState({
 			answers: answers,
 		});
@@ -61,6 +65,7 @@ export class QuestionPage extends Component {
 	}
 
 	handlePrev = () => {
+		if (prevAgree === 1) {currentAgree = currentAgree - 10};
 		if (this.state.currentIndex === 1) { this.setState({ is_first: true }); }
 		if (this.state.currentIndex === 9) { this.setState({ is_last: false }); }
 
@@ -122,6 +127,8 @@ export class QuestionPage extends Component {
 								<Button variant="danger"
 									onClick={(event) => {
 										this.handleAgree();
+										localStorage.setItem('average',currentAgree);
+										console.log(localStorage.getItem('average'));
 										runMutation({
 										  age: localStorage.getItem('age'),
 										  gender: localStorage.getItem('gender'),
@@ -151,6 +158,8 @@ export class QuestionPage extends Component {
 								<Button variant="danger"
 									onClick={(event) => {
 										this.handleDisagree();
+										localStorage.setItem('average',currentAgree);
+										console.log(localStorage.getItem('average'));
 										runMutation({
 										  age: localStorage.getItem('age'),
 										  gender: localStorage.getItem('gender'),
