@@ -82,7 +82,6 @@ export class QuestionPage extends Component {
 				<div className="titleCenter">
 					{/*<div>You are on question number {this.state.currentIndex+1}</div>
 					<br/>*/}
-					<img href="https://images.unsplash.com/photo-1535638580068-bc24cd85c7c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" style={{width: "100%", height:"150px", marginBottom: "20px" }} ></img>
 				</div>
 				<Card style={{width: "88%", height: "70vh"}}>
 					<Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
@@ -97,7 +96,7 @@ export class QuestionPage extends Component {
 								var descriptions = content['option' + this.state.options[this.state.currentIndex]];
 								return (
 									<div>
-										{d.value && d.value.img_src && <Image variant="top" href={image} style={{width: "100%", height:"150px", marginBottom: "20px" }} />}
+										{d.value && d.value.img_src && <Image variant="top" src={image} style={{width: "100%",  marginBottom: "20px" }} />}
 										{descriptions.split("\n").map((line, i) => <Card.Text key={i}>{line}</Card.Text>)}
 									</div>
 									);
