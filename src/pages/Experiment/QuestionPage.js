@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './QuestionPage.css';
-import { Card, Button, ButtonGroup, Image } from 'react-bootstrap';
+import { Card, Button, Image } from 'react-bootstrap';
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import uuid from 'uuid';
 
+var currentAgree=0;
+var prevAgree=0;
 export class QuestionPage extends Component {
 	constructor(props) {
 		super(props);
@@ -24,16 +26,20 @@ export class QuestionPage extends Component {
 
 		console.log(this.state);
 	}
-
+	
+	
 	handleAgree = () => {
 		var answers = this.state.answers;
 		answers["q" + this.state.questions[this.state.currentIndex]] = {
 			agree: true,
 			option_type: this.state.options[this.state.currentIndex],
 		}
+		currentAgree = currentAgree + 10;
+		prevAgree = 1;
 		this.setState({
-			answers: answers,
+			answers: answers
 		});
+		console.log(currentAgree);
 	}
 
 	handleDisagree = () => {
@@ -42,6 +48,7 @@ export class QuestionPage extends Component {
 			agree: false,
 			option_type: this.state.options[this.state.currentIndex],
 		}
+		prevAgree=0;
 		this.setState({
 			answers: answers,
 		});
@@ -61,6 +68,7 @@ export class QuestionPage extends Component {
 	}
 
 	handlePrev = () => {
+		if (prevAgree === 1) {currentAgree = currentAgree - 10};
 		if (this.state.currentIndex === 1) { this.setState({ is_first: true }); }
 		if (this.state.currentIndex === 9) { this.setState({ is_last: false }); }
 
@@ -79,24 +87,32 @@ export class QuestionPage extends Component {
 		//{ is_first, is_last } = this.state
 		return (
 			<div className="overallLayout">
-				<div className="titleCenter">
-					{/*<div>You are on question number {this.state.currentIndex+1}</div>
-					<br/>*/}
+				<div className="prevButton">
+					{this.state.is_first && <Button variant="link" size="sm" disabled onClick={this.handlePrev}>Go back to the previous question</Button>}
+					{!this.state.is_first && <Button variant="link" size="sm" onClick={this.handlePrev}>Go back to the previous question</Button>}
 				</div>
-				<Card style={{width: "88%", height: "70vh"}}>
+				<Card style={{width: "90%", height: "80vh"}}>
 					<Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
 					<Card.Body style={{overflowY: "scroll"}}>
 						<FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>
 							{d => {
 								console.log(d)
 								const image = (d.value ? d.value.img_src : "no image")
-								console.log(image)
+								const image2 = (d.value ? d.value.img_src2 : "no image2")
 								if(d.isLoading !== false) return "";
 								var content = d.value['desc_'+this.state.version];
 								var descriptions = content['option' + this.state.options[this.state.currentIndex]];
 								return (
 									<div>
-										{d.value && d.value.img_src && <Image variant="top" src={image} style={{width: "100%",  marginBottom: "20px" }} />}
+										{d.value && d.value.img_src && (!d.value.img_src2) &&  
+										<div style={{textAlign: "center"}}>
+											<Image variant="top" src={image} className="oneImage" />
+										</div>}
+										{d.value && d.value.img_src2 && d.value.img_src2 && 
+										<div style={{textAlign: "center"}}>
+											<Image variant="top" src={image} className="twoImages" />
+											<Image variant="top" src={image2} className="twoImages" />
+										</div>}
 										{descriptions.split("\n").map((line, i) => <Card.Text key={i}>{line}</Card.Text>)}
 									</div>
 									);
@@ -104,23 +120,18 @@ export class QuestionPage extends Component {
 						</FirestoreDocument>
 					</Card.Body>
 				</Card>
-				<br/>
-				<ButtonGroup style={{alignContent: "center"}}>
-					<Button width="50px" variant="outline-primary" onClick={this.handleAgree}>Agree</Button>
-					<Button width="50px" variant="outline-primary" onClick={this.handleDisagree}>Disagree</Button>
-				</ButtonGroup>
-				<br/>
-				<br/>
-				<div className="buttonPosition">
-					{this.state.is_first && <Button variant="primary" size="lg" disabled onClick={this.handlePrev}>Prev</Button>}
-					{!this.state.is_first && <Button variant="primary" size="lg" onClick={this.handlePrev}>Prev</Button>}
-					{!this.state.is_last && <Button variant="primary" size="lg" onClick={this.handleNext}>Next</Button>}
+				<div className="buttonAlignment">
+					{!this.state.is_last && <Button width="70px" variant="primary" onClick={(event) => {this.handleAgree(); this.handleNext()}}>Agree</Button>}
+					{!this.state.is_last && <Button width="70px" variant="primary" onClick={(event) => {this.handleDisagree(); this.handleNext()}}>Disagree</Button>}
 					{this.state.is_last && 
-						<FirestoreMutation type="set" path={"/userRecord/" + this.state.uuid}>
+						<FirestoreMutation type="set" path={"/userRecord/" + this.state.uuid} style={{marginTop: "20px"}}>
 						  {({ runMutation }) => {
 							return (
-								<Button variant="danger" size="lg"
+								<Button variant="danger"
 									onClick={(event) => {
+										this.handleAgree();
+										localStorage.setItem('average',currentAgree);
+										console.log(localStorage.getItem('average'));
 										runMutation({
 										  age: localStorage.getItem('age'),
 										  gender: localStorage.getItem('gender'),
@@ -137,14 +148,51 @@ export class QuestionPage extends Component {
 											alert("An error occured. Please retry.");
 										});
 									}}>
-									Submit
+									<div style={{fontSize: "15px"}}>Agree & Submit</div>
+								</Button>
+							);
+						  }}
+						</FirestoreMutation>
+					}
+					{this.state.is_last && 
+						<FirestoreMutation type="set" path={"/userRecord/" + this.state.uuid} style={{marginTop: "20px"}}>
+						  {({ runMutation }) => {
+							return (
+								<Button variant="danger"
+									onClick={(event) => {
+										this.handleDisagree();
+										localStorage.setItem('average',currentAgree);
+										console.log(localStorage.getItem('average'));
+										runMutation({
+										  age: localStorage.getItem('age'),
+										  gender: localStorage.getItem('gender'),
+										  version: localStorage.getItem('version'),
+										  nationality: localStorage.getItem('nationality'),
+										  answer: this.state.answers,
+
+										})
+										.then(res => {
+										  console.log("Ran mutation ", res);
+										  this.props.history.push('/outro');
+										})
+										.catch(error => {
+											alert("An error occured. Please retry.");
+										});
+									}}>
+									<div style={{fontSize: "15px"}}>Disagree & Submit</div>
 								</Button>
 							);
 						  }}
 						</FirestoreMutation>
 					}
 				</div>
+				{/*<div className="buttonPosition">}
+					{/*this.state.is_first && <Button variant="primary" size="lg" disabled onClick={this.handlePrev}>Prev</Button>}
+					{!this.state.is_first && <Button variant="primary" size="lg" onClick={this.handlePrev}>Prev</Button>*/}
+					{/*!this.state.is_last && <Button variant="primary" size="lg" onClick={this.handleNext}>Next</Button>*/}
+					
+				{/*</div>*/}
 			</div>
 		);
 	}
-}
+				
