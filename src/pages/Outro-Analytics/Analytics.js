@@ -53,7 +53,7 @@ export class Analytics extends Component {
         return (
             <div class="overallLayout">
                 <div class="centerElements">
-                    <div style={{fontWeight: 500}}><br/>Your trust level on {version} is</div>
+                    <div style={{fontWeight: 400}}><br/>Your trust level on <b>{version}</b> is</div>
                     <div class="resultText">{my_average}%</div>
                     <hr/>
 

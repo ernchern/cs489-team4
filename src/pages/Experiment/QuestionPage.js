@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './QuestionPage.css';
-import { Card, Button, ButtonGroup } from 'react-bootstrap';
+import { Card, Button, ButtonGroup, Image } from 'react-bootstrap';
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import uuid from 'uuid';
 
@@ -82,6 +82,7 @@ export class QuestionPage extends Component {
 				<div className="titleCenter">
 					{/*<div>You are on question number {this.state.currentIndex+1}</div>
 					<br/>*/}
+					<img href="https://images.unsplash.com/photo-1535638580068-bc24cd85c7c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" style={{width: "100%", height:"150px", marginBottom: "20px" }} ></img>
 				</div>
 				<Card style={{width: "88%", height: "70vh"}}>
 					<Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
@@ -89,10 +90,17 @@ export class QuestionPage extends Component {
 						<FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>
 							{d => {
 								console.log(d)
+								const image = (d.value ? d.value.img_src : "no image")
+								console.log(image)
 								if(d.isLoading !== false) return "";
 								var content = d.value['desc_'+this.state.version];
 								var descriptions = content['option' + this.state.options[this.state.currentIndex]];
-								return descriptions.split("\n").map((line, i) => <Card.Text key={i}>{line}</Card.Text>);
+								return (
+									<div>
+										{d.value && d.value.img_src && <Image variant="top" href={image} style={{width: "100%", height:"150px", marginBottom: "20px" }} />}
+										{descriptions.split("\n").map((line, i) => <Card.Text key={i}>{line}</Card.Text>)}
+									</div>
+									);
 							}}
 						</FirestoreDocument>
 					</Card.Body>

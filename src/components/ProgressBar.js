@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { VictoryPie, VictoryAnimation, VictoryLabel } from 'victory'
 
-class ProgressBar extends React.Component {
+class ProgressBar extends Component {
     constructor() {
       super();
       this.state = {
