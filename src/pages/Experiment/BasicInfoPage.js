@@ -39,11 +39,16 @@ export class BasicInfoPage extends Component {
 					General Information
 				</div>
 				<br/>
+				<div style={{textAlign: "center", width: "90%"}}>
+					<p>To start off, we need some of your basic information for later analysis.</p>
+					<p>Please fill out the below information and click <em>Proceed</em> to start the questions.</p>
+				</div>
+				<br/>
 				<div className="formCenter">
 					<Form>
 						<Form.Group controlId="formGender">
 							<Form.Label style={{marginRight: "15px"}}>Gender</Form.Label>
-							<ToggleButtonGroup type="radio" name="options" value={this.state.gender} onChange={(val) => this.setState({gender: val})}>
+							<ToggleButtonGroup type="radio" name="options" value={this.state.gender} onChange={(val) => this.setState({gender: val})} style={{width: "90%"}} >
 								<ToggleButton variant="outline-primary" value={'male'}>Male</ToggleButton>
 								<ToggleButton variant="outline-primary" value={'female'}>Female</ToggleButton>
 								<ToggleButton variant="outline-primary" value={'none'}>Rather not to say</ToggleButton>
@@ -51,7 +56,7 @@ export class BasicInfoPage extends Component {
 						</Form.Group>
 						<Form.Group controlId="formAge">
 							<Form.Label style={{marginRight: "15px"}}>Age</Form.Label>
-							<ToggleButtonGroup type="radio" name="options" value={this.state.age} onChange={(val) => this.setState({age: val})} >
+							<ToggleButtonGroup type="radio" name="options" value={this.state.age} onChange={(val) => this.setState({age: val})} style={{width: "90%"}}>
 								<ToggleButton variant="outline-primary" value={"<19"}>19 and below</ToggleButton>
 								<ToggleButton variant="outline-primary" value={"20-29"}>20-29</ToggleButton>
 								<ToggleButton variant="outline-primary" value={"30-39"}>30-39</ToggleButton>
@@ -67,7 +72,7 @@ export class BasicInfoPage extends Component {
 						</Form.Group>
 						<Form.Group controlId="formNationality">
 							<Form.Label style={{marginRight: "15px"}}>Nationality</Form.Label>
-							<CountryDropdown value={this.state.nationality} onChange={(val) => this.setState({nationality:val})}/>
+							<CountryDropdown value={this.state.nationality} onChange={(val) => this.setState({nationality:val})} style={{width: "90%"}}/>
 						</Form.Group>
 						
 					</Form>
