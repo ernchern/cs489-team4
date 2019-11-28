@@ -22,49 +22,34 @@ let db = admin.firestore();
 /* Follow the sample here to manage the database. */
 
 // Writing the database.
-questionRef = db.collection('question').doc('q1');
+questionRef = db.collection('question').doc('q20');
+
 
 questionRef.set({
 	desc_AI: {
-		optionA: 'Bruce is a police officer working against the city criminals.' + 
-						 'In an action of bringing down Bruce, the criminals capture 2 hostages:' +
-						 ' 1 female who is Bruce\'s fiancee, and another ordinary person. ' + 
-						 'They force Bruce to choose one of the hostages, and they will kill the other one. ' + 
-						 'There is no other choice and Bruce must choose between:\n' +
-						 '- Save his fiancee. \n- Flip a coin to decide who to save.\n' + 
-						 'Our AI system thinks that it is better to save his fiancee. Do you agree?',
-		optionB: 'Bruce is a police officer working against the city criminals.' + 
-						 'In an action of bringing down Bruce, the criminals capture 2 hostages:' +
-						 ' 1 female who is Bruce\'s fiancee, and another ordinary person. ' + 
-						 'They force Bruce to choose one of the hostages, and they will kill the other one. ' + 
-						 'There is no other choice and Bruce must choose between:\n' +
-						 '- Save his fiancee. \n- Flip a coin to decide who to save.\n' + 
-						 'Our AI system thinks that it is better to flip a coin to decide who to save. Do you agree?',
+		optionA:"Our AI system analyzes these photos and concludes that the woman on the left has a higher chance to become a killer, than the woman on the right.\n"+
+		"Do you agree?",
+						 
+		optionB: "Our AI system analyzes these photos and concludes that the woman on the right has a higher chance to become a killer, than the woman on the left.\n"+ 
+						 "Do you agree?",
 	},
 	desc_human: {
-		optionA: 'Bruce is a police officer working against the city criminals.' + 
-						 'In an action of bringing down Bruce, the criminals capture 2 hostages:' +
-						 ' 1 female who is Bruce\'s fiancee, and another ordinary person. ' + 
-						 'They force Bruce to choose one of the hostages, and they will kill the other one. ' + 
-						 'There is no other choice and Bruce must choose between:\n' +
-						 '- Save his fiancee. \n- Flip a coin to decide who to save.\n' + 
-						 'Another participant thinks that it is better to save his fiancee. Do you agree?',
-		optionB: 'Bruce is a police officer working against the city criminals.' + 
-						 'In an action of bringing down Bruce, the criminals capture 2 hostages:' +
-						 ' 1 female who is Bruce\'s fiancee, and another ordinary person. ' + 
-						 'They force Bruce to choose one of the hostages, and they will kill the other one. ' + 
-						 'There is no other choice and Bruce must choose between:\n' +
-						 '- Save his fiancee. \n- Flip a coin to decide who to save.\n' + 
-						 'Another participant thinks that it is better to flip a coin to decide who to save. Do you agree?',
+		optionA:"Another participant looks at these photos and concludes that the woman on the left has a higher chance to become a killer, than the woman on the right.\n"+
+						  "Do you agree?",
+						  
+		optionB:"Another participant looks at these photos and concludes that the woman on the right has a higher chance to become a killer, than the woman on the left.\n"+ 
+						 "Do you agree?",
 	},
-	img_src: null
+	img_src: "https://images.unsplash.com/photo-1480997347013-c5b608da7dcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+	img_src2:"https://images.unsplash.com/photo-1551847661-4fb30b8a78fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
 });
 
 // Reading the database.
 db.collection('question').get()
   .then((snapshot) => {
     snapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
+	  if(doc.id == 'q20')
+		console.log(doc.id, '=>', doc.data()['desc_human']['optionB']);
     });
   })
   .catch((err) => {

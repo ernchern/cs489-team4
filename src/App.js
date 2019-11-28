@@ -37,7 +37,7 @@ class App extends Component {
       // WE HARDCODE THE NUMBER OF QUESTIONS HERE. MODIFY THIS IF WE HAVE MORE
       // QUESTIONS.
       var fullList = [];
-      for(var i=0; i<14; i++) fullList.push(i+1);
+      for(var i=0; i<20; i++) fullList.push(i+1);
       shuffle(fullList);
       while(fullList.length > 10) fullList.pop();
       localStorage.setItem('questions', fullList.toString());
