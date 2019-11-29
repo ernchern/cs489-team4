@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
+import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import './BasicInfoPage.css';
 import Form from 'react-bootstrap/Form';
 import { CountryDropdown } from 'react-country-region-selector';
+import { Link } from 'react-router-dom';
 
 var fields = ['gender', 'age', 'cs_background', 'nationality'];
 export class BasicInfoPage extends Component {
@@ -33,6 +34,7 @@ export class BasicInfoPage extends Component {
 	}
 
 	render() {
+    console.log("vdx:", process.env.PUBLIC_URL);
 		return (
 			<div className="overallLayout">
 				<div className="headerStyle">
@@ -72,9 +74,12 @@ export class BasicInfoPage extends Component {
 						
 					</Form>
 					<div className="buttonPadding">
-					<Button href="questions" variant="primary" onClick={this.updateVal} type="submit">
-						Proceed
-					</Button>
+
+          <Link to="/questions">
+						<Button variant="primary" onClick={this.updateVal} type="submit">
+							Proceed
+						</Button>
+					</Link>
 					</div>
 				</div>
 			</div>

@@ -74,7 +74,7 @@ export class QuestionPage extends Component {
 
 	render() {
 		if(!this.state.version || !this.state.questions || !this.state.options) {
-			return <div>An error occured. Go back to <a href="/">Home page</a></div>;
+			return <div>An error occured. Go back to <a href={process.env.PUBLIC_URL + "/"}>Home page</a></div>;
 		}
 		//{ is_first, is_last } = this.state
 		return (

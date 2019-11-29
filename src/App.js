@@ -7,7 +7,7 @@ import { BasicInfoPage } from './pages/Experiment/BasicInfoPage';
 import { QuestionPage } from './pages/Experiment/QuestionPage';
 import { OutroPage } from './pages/Outro-Analytics/OutroPage';
 import { Analytics } from './pages/Outro-Analytics/Analytics';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {HashRouter, Route} from 'react-router-dom';
 import { Button, Image } from 'react-bootstrap';
 import firebase from 'firebase';
 import { FirestoreProvider } from "@react-firebase/firestore";
@@ -36,8 +36,9 @@ class App extends Component {
     if(!localStorage.getItem('questions')) {
       // WE HARDCODE THE NUMBER OF QUESTIONS HERE. MODIFY THIS IF WE HAVE MORE
       // QUESTIONS.
+      const numQuestions = 14;
       var fullList = [];
-      for(var i=0; i<14; i++) fullList.push(i+1);
+      for(var i=0; i<numQuestions; i++) fullList.push(i+1);
       shuffle(fullList);
       while(fullList.length > 10) fullList.pop();
       localStorage.setItem('questions', fullList.toString());
@@ -50,24 +51,23 @@ class App extends Component {
   }
   
   render() {
+    console.log(process.env.PUBLIC_URL + "/basicinfo");
     return(
       <FirestoreProvider {...firebaseConfig} firebase={firebase}>
         <div className="screenPadding">
           <div style={{textAlign: "center", flex: 1}}>
-            <Button href="/" variant="link" size="sm"><Image src={logo} fluid /></Button>
+            <Button href={process.env.PUBLIC_URL + "/"} variant="link" size="sm"><Image src={logo} fluid /></Button>
           </div>
           <br/>
           <div className="divPadding">
-            <BrowserRouter>
-              <Route exact
-                path="/"
-                render={(props) => <IntroPage {...props} />} />
+            <HashRouter basename={process.env.PUBLIC_URL}>
+              <Route exact path="/" component={IntroPage}/>
               <Route exact path="/intro" component={IntroPage} />
               <Route exact path="/basicinfo" component={BasicInfoPage} />
               <Route exact path="/questions" component={QuestionPage} />
               <Route exact path="/outro" component={OutroPage} />
               <Route exact path="/analytics" component={Analytics} />
-            </BrowserRouter>
+            </HashRouter>
           </div>
         </div>
       </FirestoreProvider>

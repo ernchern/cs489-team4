@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import './IntroPage.css';
+import { Link } from 'react-router-dom';
 
 
 export class IntroPage extends Component {
@@ -31,7 +32,9 @@ export class IntroPage extends Component {
                     <b>Clicking on the Start button below indicates that you have read the above information and voluntarily agree to participate.</b>*/}
                 </div>
                 <br/>
-                <Button href="basicinfo" variant="primary" type="submit" size="lg">Start</Button>
+                <Link to="/basicinfo">
+                    <Button variant="primary" type="submit" size="lg">Start</Button>
+                </Link>
             </div>
         );
     }
