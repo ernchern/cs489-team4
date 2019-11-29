@@ -51,14 +51,14 @@ export class Analytics extends Component {
         //Hardcoded whether to show analytics or not 
         var show_analytics = false;
         return (
-            <div class="overallLayout">
-                <div class="centerElements">
+            <div className="overallLayout">
+                <div className="centerElements">
                     <div style={{fontWeight: 400}}><br/>Your trust level on <b>{version}</b> is</div>
-                    <div class="resultText">{my_average}%</div>
+                    <div className="resultText">{my_average}%</div>
                     <hr/>
 
                     {!show_analytics && 
-                    <div class="explanationText">
+                    <div className="explanationText">
                         <br/>
                         We still don't have enough data to show the overall analytics.
                         Please come back later to <a href="localhost:3000/analytics">this link</a>.

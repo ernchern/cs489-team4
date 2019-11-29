@@ -25,9 +25,6 @@ export class OutroPage extends Component {
                     <Link to="/analytics">
                         <Button variant="primary" type="submit">Analytics</Button>
                     </Link>
-                    <Link to="/">
-                        <Button href="/" variant="primary" type="submit">Back to Main</Button>
-                    </Link>
                 </div>
             </div>
         );
