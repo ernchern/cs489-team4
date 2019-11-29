@@ -46,7 +46,7 @@ const machine_data = [
 export class Analytics extends Component {
     render() {
         var version = localStorage.getItem('version');
-        var my_average = 50;
+        var my_average = localStorage.getItem('average');
 
         //Hardcoded whether to show analytics or not 
         var show_analytics = false;
