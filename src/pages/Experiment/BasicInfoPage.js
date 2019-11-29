@@ -34,7 +34,6 @@ export class BasicInfoPage extends Component {
 	}
 
 	render() {
-    console.log("vdx:", process.env.PUBLIC_URL);
 		return (
 			<div className="overallLayout">
 				<div className="headerStyle">

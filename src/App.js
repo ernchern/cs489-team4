@@ -13,6 +13,7 @@ import firebase from 'firebase';
 import { FirestoreProvider } from "@react-firebase/firestore";
 import firebaseConfig from './firebaseConfig';
 import logo from './components/moral-survey.png';
+import uuid from 'uuid';
 
 function shuffle(a) {
     var j, x, i;
@@ -48,10 +49,11 @@ class App extends Component {
       for(i=0; i<10; i++) options += (Math.floor(Math.random() * 2) ? "A" : "B");
         localStorage.setItem('options', options);
     }
+    if(!localStorage.getItem('uuid'))
+      localStorage.setItem('uuid', uuid.v4());
   }
   
   render() {
-    console.log(process.env.PUBLIC_URL + "/basicinfo");
     return(
       <FirestoreProvider {...firebaseConfig} firebase={firebase}>
         <div className="screenPadding">

@@ -9,7 +9,6 @@ export class IntroPage extends Component {
         var version = localStorage.getItem('version');
         //var version = "AI"
         var opening_text, study_object;
-        console.log(version);
         if (version === "AI") {
             opening_text = "The purpose of our project is to help machine to make better moral decision for human.";
             study_object = "a machine";
