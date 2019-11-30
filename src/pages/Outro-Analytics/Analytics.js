@@ -81,8 +81,9 @@ export class Analytics extends Component {
                         <br/>
                     </div>}  
 
-                    <Button href="outro" variant="primary" type="submit">Go Back</Button>
-                    
+                    <Link to="/outro">
+                      <Button variant="primary" type="submit">Go Back</Button>
+                    </Link>
                     
                 </div>
             </div>
