@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import './Analytics.css';
 import HorizontalBar from '../../components/HorizontalBar';
 import ProgressBar from '../../components/ProgressBar';
+import { Link } from 'react-router-dom';
+
 
 const machine_data = [
     { x: "Total", y: 86 },
