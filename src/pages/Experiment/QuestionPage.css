@@ -7,15 +7,29 @@
     justify-content: center;
 }
 
-.buttonPosition {
-    width: 80%;
+.buttonAlignment {
+    width: 90%;
     display: flex;
-    justify-content: space-between;
+    padding: 20px 0 0px 0;
+    justify-content: space-around;
 }
 
-.titleCenter {
-    text-align: center;
-    font-weight: bold;
-    font-size: 3.5vw;
-    
+.prevButton {
+    text-align: left;
+    padding: 10px 0 10px 0;
+}
+
+.oneImage {
+    width: auto;
+    height: auto;
+    max-width: 250px;
+    max-height: 250px;
+    margin-bottom: 20px;
+}
+
+.twoImages {
+    width: 50%;
+    max-width: 166px;
+    max-height: 500px;
+    margin-bottom: 20px;
 }
