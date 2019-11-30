@@ -51,7 +51,7 @@ export class Analytics extends Component {
         //Hardcoded whether to show analytics or not 
         var show_analytics = false;
         return (
-            <div className="overallLayout">
+            <div className="analyticsLayout">
                 <div className="centerElements">
                     <div style={{fontWeight: 400}}><br/>Your trust level on <b>{version}</b> is</div>
                     <div className="resultText">{my_average}%</div>
@@ -61,7 +61,7 @@ export class Analytics extends Component {
                     <div className="explanationText">
                         <br/>
                         We still don't have enough data to show the overall analytics.
-                        Please come back later to <a href="localhost:3000/analytics">this link</a>.
+                        Please come back later to <a href="https://ernchern.github.io/cs489-team4/#/cs489-team4/analytics">this link</a>.
                         <ProgressBar></ProgressBar>
                     </div>}
                     {show_analytics && 

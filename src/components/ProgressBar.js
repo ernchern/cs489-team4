@@ -26,7 +26,7 @@ class ProgressBar extends Component {
     render() {
       return (
         <div>
-          <svg viewBox="0 0 300 300" width="330px" height="330px">
+          <svg viewBox="0 0 300 300" width="300px" height="300px">
             <VictoryPie
               standalone={false}
               animate={{ duration: 1000 }}

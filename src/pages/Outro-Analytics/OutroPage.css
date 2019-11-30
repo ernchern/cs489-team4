@@ -1,19 +1,23 @@
-.overallLayout {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.buttonPosition {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-}
-
 .outroText {
     text-align: center;
-    font-size: 17.5px;
+    
     width: 90%;
+    padding: 10px 0 20px 0;
+    align-items: stretch;
+    height: 100%;
+    justify-content: center;
+    display: table-cell;
+}
+
+.outroLayout {
+    background-color: white;
+    display: table-cell;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
+    font-size: 17.5px;
+    width: 100%;
+    padding: 10px 5% 10px 5%;
+    overflow: auto;
 }

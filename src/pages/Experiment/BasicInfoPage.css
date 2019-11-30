@@ -4,13 +4,15 @@
     font-size: 6.5vw;
 }
 
-.overallLayout {
+.infoLayout {
     background-color: white;
-    display: flex;
+    display: table-cell;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow-y: scroll;
+    height: 100%;
+    width: 100%;
 }
 
 .formCenter {

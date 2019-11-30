@@ -16,6 +16,7 @@
   border-color: #6270c8;
   border-width: 10px;
   box-shadow: 0 0 0 3px cornflowerblue inset;
+  display: flex;
 }
 
 html, body {

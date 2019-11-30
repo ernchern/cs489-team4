@@ -7,8 +7,8 @@ import './OutroPage.css';
 export class OutroPage extends Component {
     render() {
         return (
-            <div className="overallLayout">
-                <div className="outroText">
+            <div className="outroLayout">
+
 					<p>Thank you so much for participating in the survey!</p>
                     <hr/>
 					<p>Moral Survey is actually <b>a blind experiment.</b></p>
@@ -19,13 +19,10 @@ export class OutroPage extends Component {
 					<hr/>
                     <p>If you are interested in our experiment or you are curious about the final result analysis, please reach us <a href="https://github.com/ernchern/cs489-team4">here</a>.</p>
 					<p>Thank you again for your support and participation. :)</p>
-                </div>
-                <br/>
-                <div className="buttonPosition">
                     <Link to="/analytics">
-                        <Button variant="primary" type="submit">Analytics</Button>
+                        <Button variant="primary" type="submit" style={{margin: "10px 0 10px 0"}}>Analytics</Button>
                     </Link>
-                </div>
+
             </div>
         );
     }

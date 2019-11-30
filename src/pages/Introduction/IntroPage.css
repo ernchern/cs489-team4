@@ -1,20 +1,27 @@
 .introText {
     text-align: center;
-    font-size: 17.5px;
     width: 90%;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 20px 0;
+    align-items: stretch;
+    height: 100%;
+    justify-content: center;
+    display: table-cell;
 }
 
-.overallLayout {
+.introLayout {
     background-color: white;
-    height: 100%;
-    display: flex;
+    display: table-cell;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: scroll;
+    text-align: center;
+    font-size: 17.5px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5% 10px 5%;
+    overflow-y: scroll;
 }
 
-.introText p{
+.introLayout p{
     margin-bottom: 25px;
 }

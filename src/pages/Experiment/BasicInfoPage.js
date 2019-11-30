@@ -35,7 +35,7 @@ export class BasicInfoPage extends Component {
 
 	render() {
 		return (
-			<div className="overallLayout">
+			<div className="infoLayout">
 				<div className="headerStyle">
 					General Information
 				</div>
