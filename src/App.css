@@ -1,18 +1,33 @@
 
 
 .screenPadding {
-  padding: 1%;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   background-color: #EEEEEE;
 }
 
 .divPadding {
-  background-color: #b4bae4;
+  background-color: #d9ddff;
   width: 95%;
   margin: 0 auto;
-  height: 90%;
+  height: 88%;
   border-style: solid;
   border-color: #6270c8;
   border-width: 10px;
-  box-shadow: cornflowerblue;
+  box-shadow: 0 0 0 3px cornflowerblue inset;
 }
+
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+#root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+*/

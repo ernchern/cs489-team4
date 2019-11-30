@@ -88,7 +88,7 @@ export class QuestionPage extends Component {
 					{this.state.is_first && <Button variant="link" size="sm" disabled onClick={this.handlePrev}>Go back to the previous question</Button>}
 					{!this.state.is_first && <Button variant="link" size="sm" onClick={this.handlePrev}>Go back to the previous question</Button>}
 				</div>
-				<Card style={{width: "90%", height: "80vh"}}>
+				<Card style={{width: "90%", height: "70vh"}}>
 					<Card.Header>Question {this.state.currentIndex + 1}</Card.Header>
 					<Card.Body style={{overflowY: "scroll"}}>
 						<FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>

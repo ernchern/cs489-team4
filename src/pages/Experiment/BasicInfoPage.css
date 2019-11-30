@@ -5,7 +5,6 @@
 }
 
 .overallLayout {
-    min-height: 100vh;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -21,9 +20,10 @@
 .headerStyle {
     text-align: center;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 4vw;
+    padding-bottom: 10px;
 }
 
 .buttonPadding {
-    margin: 30px;
+    margin: 20px;
 }

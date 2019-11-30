@@ -53,10 +53,9 @@ class App extends Component {
     return(
       <FirestoreProvider {...firebaseConfig} firebase={firebase}>
         <div className="screenPadding">
-          <div style={{textAlign: "center", flex: 1}}>
+          <div style={{textAlign: "center"}}>
             <Button href="/" variant="link" size="sm"><Image src={logo} fluid /></Button>
           </div>
-          <br/>
           <div className="divPadding">
             <BrowserRouter>
               <Route exact

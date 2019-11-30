@@ -1,5 +1,4 @@
 .overallLayout {
-    min-height: 100vh;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -15,7 +14,6 @@
 
 .outroText {
     text-align: center;
-    //font-size: 4.2vw;
     font-size: 17.5px;
     width: 90%;
 }
