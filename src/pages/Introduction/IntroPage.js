@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import './IntroPage.css';
+import { Link } from 'react-router-dom';
 
 
 export class IntroPage extends Component {
@@ -8,7 +9,6 @@ export class IntroPage extends Component {
         var version = localStorage.getItem('version');
         //var version = "AI"
         var opening_text, study_object;
-        console.log(version);
         if (version === "AI") {
             opening_text = "The purpose of our project is to help machine to make better moral decision for human.";
             study_object = "a machine";
@@ -27,7 +27,9 @@ export class IntroPage extends Component {
                     <p>Your responses will be confidential and we <em>do not</em> collect identifying information such as your name, email address or IP address.</p>
                     <b>Clicking on the <em>Start</em> button below indicates that you have read the above information and voluntarily agree to participate.</b>
                 </div>
-                <Button href="basicinfo" variant="primary" type="submit" size="lg" style={{margin: "0 0 20px 0"}}>Start</Button>
+                <Link to="/basicinfo">
+                    <Button variant="primary" type="submit" size="lg" style={{margin: "0 0 20px 0"}}>Start</Button>
+                </Link>
             </div>
         );
     }

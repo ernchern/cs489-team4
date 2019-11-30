@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import './OutroPage.css';
 
 
@@ -21,8 +22,9 @@ export class OutroPage extends Component {
                 </div>
                 <br/>
                 <div className="buttonPosition">
-                    <Button href="analytics" variant="primary" type="submit">Analytics</Button>
-                    <Button href="/" variant="primary" type="submit">Back to Main</Button>
+                    <Link to="/analytics">
+                        <Button variant="primary" type="submit">Analytics</Button>
+                    </Link>
                 </div>
             </div>
         );

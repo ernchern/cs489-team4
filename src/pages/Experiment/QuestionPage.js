@@ -4,8 +4,9 @@ import { Card, Button, Image } from 'react-bootstrap';
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import uuid from 'uuid';
 
-var currentAgree=0;
-var prevAgree=0;
+var currentAgree = 0;
+var prevAgree = 0;
+
 export class QuestionPage extends Component {
 	constructor(props) {
 		super(props);
@@ -79,7 +80,7 @@ export class QuestionPage extends Component {
 
 	render() {
 		if(!this.state.version || !this.state.questions || !this.state.options) {
-			return <div>An error occured. Go back to <a href="/">Home page</a></div>;
+			return <div>An error occured. Go back to <a href={process.env.PUBLIC_URL + "/"}>Home page</a></div>;
 		}
 		//{ is_first, is_last } = this.state
 		return (
@@ -127,7 +128,7 @@ export class QuestionPage extends Component {
 								<Button variant="danger"
 									onClick={(event) => {
 										this.handleAgree();
-										localStorage.setItem('average',currentAgree);
+										localStorage.setItem('average', currentAgree);
 										console.log(localStorage.getItem('average'));
 										runMutation({
 										  age: localStorage.getItem('age'),
@@ -158,7 +159,7 @@ export class QuestionPage extends Component {
 								<Button variant="danger"
 									onClick={(event) => {
 										this.handleDisagree();
-										localStorage.setItem('average',currentAgree);
+										localStorage.setItem('average', currentAgree);
 										console.log(localStorage.getItem('average'));
 										runMutation({
 										  age: localStorage.getItem('age'),
