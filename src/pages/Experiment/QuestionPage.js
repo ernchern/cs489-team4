@@ -24,8 +24,6 @@ export class QuestionPage extends Component {
 			is_first: true,
 			is_last: false,
 		}
-
-		console.log(this.state);
 	}
 
 	handleAgree = () => {
@@ -94,7 +92,7 @@ export class QuestionPage extends Component {
 					<Card.Body style={{overflowY: "scroll"}}>
 						<FirestoreDocument path={"/question/q" + this.state.questions[this.state.currentIndex]}>
 							{d => {
-								console.log(d)
+								// console.log(d)
 								const image = (d.value ? d.value.img_src : "no image")
 								const image2 = (d.value ? d.value.img_src2 : "no image2")
 								if(d.isLoading !== false) return "";
@@ -111,7 +109,17 @@ export class QuestionPage extends Component {
 											<Image variant="top" src={image} className="twoImages" />
 											<Image variant="top" src={image2} className="twoImages" />
 										</div>}
-										{descriptions.split("\n").map((line, i) => <Card.Text key={i}>{line}</Card.Text>)}
+										{descriptions.split("\n").map((line, i) => {
+											if(line.includes("Another participant")) {
+												line = line.split("Another participant");
+												return <Card.Text key={i}><b>Another participant</b>{line[1]}</Card.Text>;
+											}
+											if(line.includes("Our AI system")) {
+												line = line.split("Our AI system");
+												return <Card.Text key={i}><b>Our AI system</b>{line[1]}</Card.Text>;
+											}
+											return <Card.Text key={i}>{line}</Card.Text>;
+										})}
 									</div>
 									);
 							}}
@@ -136,7 +144,7 @@ export class QuestionPage extends Component {
 										  version: localStorage.getItem('version'),
 										  nationality: localStorage.getItem('nationality'),
 										  answer: this.state.answers,
-
+										  submitTime: Date.now(),
 										})
 										.then(res => {
 										  console.log("Ran mutation ", res);
@@ -167,6 +175,7 @@ export class QuestionPage extends Component {
 										  version: localStorage.getItem('version'),
 										  nationality: localStorage.getItem('nationality'),
 										  answer: this.state.answers,
+										  submitTime: Date.now(),
 
 										})
 										.then(res => {

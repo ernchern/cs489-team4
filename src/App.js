@@ -37,7 +37,7 @@ class App extends Component {
     if(!localStorage.getItem('questions')) {
       // WE HARDCODE THE NUMBER OF QUESTIONS HERE. MODIFY THIS IF WE HAVE MORE
       // QUESTIONS.
-      const numQuestions = 14;
+      const numQuestions = 20;
       var fullList = [];
       for(var i=0; i<numQuestions; i++) fullList.push(i+1);
       shuffle(fullList);
