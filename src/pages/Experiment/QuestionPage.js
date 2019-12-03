@@ -60,7 +60,6 @@ export class QuestionPage extends Component {
 			});
 			
 		}
-		console.log(this.state.answers);
 	}
 
 	handlePrev = () => {
@@ -143,6 +142,7 @@ export class QuestionPage extends Component {
 										  gender: localStorage.getItem('gender'),
 										  version: localStorage.getItem('version'),
 										  nationality: localStorage.getItem('nationality'),
+										  cs_background: localStorage.getItem('cs_background'),
 										  answer: this.state.answers,
 										  submitTime: Date.now(),
 										})
@@ -174,6 +174,7 @@ export class QuestionPage extends Component {
 										  gender: localStorage.getItem('gender'),
 										  version: localStorage.getItem('version'),
 										  nationality: localStorage.getItem('nationality'),
+										  cs_background: localStorage.getItem('cs_background'),
 										  answer: this.state.answers,
 										  submitTime: Date.now(),
 
